@@ -26,11 +26,26 @@ public class SpringdatajpaApplication {
 			// Lây danh sách các chuyên bay đi đà lạt
 			log.info("Customers found with findAll():");
 			log.info("-------------------------------");
-			for (ChuyeBay chuyeBay : bayReponse.finchuyenbay("DAD")) {
+			for (ChuyeBay chuyeBay : bayReponse.findAll()) {
 				log.info(chuyeBay.toString());
 			}
 			log.info("");
+//			ChuyeBay customer = bayReponse.findAll(1L);
+//		      log.info("Customer found with findById(1L):");
+//		      log.info("--------------------------------");
+//		      log.info(customer.toString());
+//		      log.info("");
 
+		      // fetch customers by last name
+		      log.info("Customer found with findByLastName('Bauer'):");
+		      log.info("--------------------------------------------");
+		      bayReponse.finchuyenbay("DAD").forEach(bauer -> {
+		        log.info(bauer.toString());
+		      });
+		      // for (Customer bauer : repository.findByLastName("Bauer")) {
+		      //  log.info(bauer.toString());
+		      // }
+		      log.info("");
 		};
 
 	}

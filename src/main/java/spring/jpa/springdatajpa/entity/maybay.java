@@ -7,7 +7,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "maybay")
-public class maybay {
+public class MayBay {
 	@Id
 	int MaMB;
 	@Column
@@ -39,14 +39,14 @@ public class maybay {
 		TamBay = tamBay;
 	}
 
-	public maybay(int maMB, String loai, int tamBay) {
+	public MayBay(int maMB, String loai, int tamBay) {
 		super();
 		MaMB = maMB;
 		Loai = loai;
 		TamBay = tamBay;
 	}
 
-	public maybay() {
+	public MayBay() {
 		super();
 	}
 

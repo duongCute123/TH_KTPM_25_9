@@ -19,14 +19,22 @@ public class SpringdatajpaApplication {
 	}
 
 	@Bean
-	public CommandLineRunner getCommandLineRunner(NhanVienReponse reponsetoryNhanVien) {
+	public CommandLineRunner getCommandLineRunner(ReponsetoryChuyenBay reponsetoryChuyenBay) {
 		return (args -> {
-			//In ra tổng lương nhân viên
-			int Luong=0;
-			for (NhanVien luong: reponsetoryNhanVien.getTotalLuong()) {
-				Luong+=luong.getLuong();
+			//Tổng các chuyến bay xuất phát từ Sài gòn
+			int count=0;
+			for (ChuyeBay chuyeBay: reponsetoryChuyenBay.getChuyenBaySG("SGN")) {
+				count++;
 			}
-			System.out.println("Tổng lương là"+Luong);
+			System.out.println("Tổng các chuyến bay đi từ Sài Gòn"+count);
+			
+			
+			//In ra tổng lương nhân viên
+//			int Luong=0;
+//			for (NhanVien luong: reponsetoryNhanVien.getTotalLuong()) {
+//				Luong+=luong.getLuong();
+//			}
+//			System.out.println("Tổng lương là"+Luong);
 //			//In ra các chuyến bay xuất phát từ Sài Gòn
 //			int count=0;
 			//In ra các máy bay Boing

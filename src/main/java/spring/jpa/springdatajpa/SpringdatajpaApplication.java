@@ -4,6 +4,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import spring.jpa.springdatajpa.entity.ChuyeBay;
+import spring.jpa.springdatajpa.entity.NhanVien;
 import spring.jpa.springdatajpa.entity.maybay;
 import spring.jpa.springdatajpa.reponse.MayBayReponse;
 import spring.jpa.springdatajpa.reponse.NhanVienReponse;
@@ -17,12 +19,18 @@ public class SpringdatajpaApplication {
 	}
 
 	@Bean
-	public CommandLineRunner getCommandLineRunner(MayBayReponse reponsetoryMayBay) {
+	public CommandLineRunner getCommandLineRunner(NhanVienReponse reponsetoryNhanVien) {
 		return (args -> {
+			//In ra tổng lương nhân viên
+			int Luong=0;
+			for (NhanVien luong: reponsetoryNhanVien.getTotalLuong()) {
+				Luong+=luong.getLuong();
+			}
+			System.out.println("Tổng lương là"+Luong);
 //			//In ra các chuyến bay xuất phát từ Sài Gòn
 //			int count=0;
 			//In ra các máy bay Boing
-			System.out.println(reponsetoryMayBay.getMayBayBoing("Boeing"));
+//			System.out.println(reponsetoryMayBay.getMayBayBoing("Boeing"));
 //			//In ra các chuyến bay từ 8000->10000
 //			System.out.println(reponsetoryChuyenBay.getDodaiDuongBay("8000","10000"));
 //			//Im ra lương nhân viên

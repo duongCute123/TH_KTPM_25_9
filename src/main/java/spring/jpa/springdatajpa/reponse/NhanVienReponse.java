@@ -8,4 +8,5 @@ import spring.jpa.springdatajpa.entity.NhanVien;
 
 public interface NhanVienReponse extends JpaRepository<NhanVien, String>{
 	List<NhanVien> getLuongNhanVien(int luong);
+	List<NhanVien> getTotalLuong();
 }
